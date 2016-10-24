@@ -2,5 +2,5 @@
 参考：effective c＋＋ 条款33 36
 
 观点：
-避免出现这样糟糕的情况的关键在于养成三个习惯：第一绝对不要override和父类某个方法拥有相同签名式signature的non-virtual method（理由除了昨天语义上的理解以外加上了今天从实践意义上的避险）; 第二，在“重载”virtual method的时候，若有同名virtual方法，一定要全部重载；第三，不要写拥有相同名称的virtual method（我看了一下qt，尚未发现有同名的virtual method，如果以后发现，可以再讨论。
+避免出现这样糟糕的情况的关键在于养成三个习惯：第一绝对不要override和父类某个方法拥有相同签名式signature的non-virtual method（语义上的理解以外加上了从实践意义上的避险-防止名称遮蔽）; 第二，在“重载”virtual method的时候，若有同名virtual方法，一定要全部重载；第三，不要写拥有相同名称的virtual method（以qt为例尚未发现有同名的virtual method，如果以后发现，可以再讨论。）
 简单总结的来说，就是除了non-virtual method以外不使用重载（qt中这样的重载很常见）。然后继承的时候，如果要“重载”virtual method, 一定要注意是否有同名virtual（如果设计者和使用者都遵循上述三条，这种情况就很少，使用者也有义务去检查）
